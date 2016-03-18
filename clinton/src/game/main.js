@@ -9,7 +9,7 @@ game.module(
 .body(function() {
 
 game.addAudio('jump_sound.mp3', 'jump_sound');
-game.addAudio('trump_song.mp3', 'trump_song');
+game.addAudio('clinton_song.mp3', 'trump_song');
 game.addAudio('trump_coin_sound.mp3', 'trump_coin_sound');
 game.addAudio('wall_collide_sound.ogg', 'wall_collide_sound');
 
