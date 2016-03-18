@@ -10,7 +10,7 @@ game.module(
 
 game.addAudio('jump_sound.mp3', 'jump_sound');
 game.addAudio('trump_song.mp3', 'trump_song');
-game.addAudio('trump_coin_sound.mp3', 'trump_coin_sound');
+// game.addAudio('trump_coin_sound.mp3', 'trump_coin_sound');
 game.addAudio('wall_collide_sound.ogg', 'wall_collide_sound');
 
 
@@ -99,6 +99,7 @@ game.createScene('Main', {
     keydown: function(key) {
         if (key === 'SPACE') {
             this.player.jump();
+            game.audio.setSoundVolume(0.2)
             game.audio.playSound("jump_sound", false);        
         } else if (key == 'ESC') {
             alert('pause');            
