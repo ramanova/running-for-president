@@ -14,5 +14,6 @@ game.addAsset('wall.png');
 game.addAsset('player.json');
 game.addAsset('coin.json');
 game.addAsset('oneway.png');
+game.addAsset('crate_01.png')
 
 });

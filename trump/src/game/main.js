@@ -18,6 +18,7 @@ game.createScene('Main', {
     init: function() {
         this.world = new game.World(0, 2000);
 
+        game.audio.setMusicVolume(10)
         game.audio.playMusic("trump_song", true);
     
         var floorBody = new game.Body({
@@ -37,6 +38,9 @@ game.createScene('Main', {
         this.addParallax('05_trees.png', 100, -400);
         this.addParallax('05_bush.png', 50, -500);
         this.addParallax('platform.png', 0, -600);
+
+        var text = new game.PIXI.Text("Hello World!", { font: '60px Arial' });
+        this.stage.addChild(text);
 
         this.objectContainer = new game.Container().addTo(this.stage);
         this.playerContainer = new game.Container().addTo(this.stage);

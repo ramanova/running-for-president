@@ -8,6 +8,8 @@ game.addAudio('wall_collide_sound.ogg', 'wall_collide_sound');
 
 game.addAsset('stacks_of_money.png', 'stacks_of_money');
 
+game.addAsset('crate_01.png', 'crate_01');
+
 game.createClass('Player', {
     onGround: false,    
 
@@ -188,7 +190,7 @@ game.createClass('Coin', {
 
 game.createClass('Tires', {
     init: function(x, y) {
-        this.sprite = new game.Sprite('tires.png');
+        this.sprite = new game.Sprite('crate_01.png');
         this.sprite.anchor.set(0.5, 0.5);
 
         this.body = new game.Body({
