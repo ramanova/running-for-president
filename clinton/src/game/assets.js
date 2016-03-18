@@ -12,8 +12,6 @@ game.addAsset('platform.png');
 game.addAsset('tires.png');
 game.addAsset('wall.png');
 game.addAsset('player.json');
-// game.addAsset('trump.json');
-game.addAsset('clinton.json');
 game.addAsset('coin.json');
 game.addAsset('oneway.png');
 
