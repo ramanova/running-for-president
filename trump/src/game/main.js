@@ -39,7 +39,7 @@ game.createScene('Main', {
         this.addParallax('05_bush.png', 50, -500);
         this.addParallax('platform.png', 0, -600);
 
-        var text = new game.PIXI.Text("Hello World!", { font: '60px Arial' });
+        var text = new game.PIXI.Text("Delegates: ", { font: '60px Comic Sans MS' });
         this.stage.addChild(text);
 
         this.objectContainer = new game.Container().addTo(this.stage);
