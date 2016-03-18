@@ -14,11 +14,13 @@ game.addAudio('trump_coin_sound.mp3', 'trump_coin_sound');
 game.addAudio('wall_collide_sound.ogg', 'wall_collide_sound');
 
 
+
 game.createScene('Main', {
     init: function() {
         this.world = new game.World(0, 2000);
 
-        game.audio.setMusicVolume(10)
+
+        
         game.audio.playMusic("trump_song", true);
     
         var floorBody = new game.Body({
@@ -39,14 +41,14 @@ game.createScene('Main', {
         this.addParallax('05_bush.png', 50, -500);
         this.addParallax('platform.png', 0, -600);
 
-        var text = new game.PIXI.Text("Delegates: ", { font: '60px Comic Sans MS' });
-        this.stage.addChild(text);
-
         this.objectContainer = new game.Container().addTo(this.stage);
         this.playerContainer = new game.Container().addTo(this.stage);
 
         this.player = new game.Player(400, game.system.height - 400);
         this.player.sprite.addTo(this.playerContainer);
+
+        var text = new game.PIXI.Text("Delegates: " + this.player.delegates, { font: '60px Comic Sans MS' });
+        this.stage.addChild(text);
 
         this.addTimer(1200, this.spawnRandomObject.bind(this), true);
         this.spawnRandomObject();
@@ -57,10 +59,18 @@ game.createScene('Main', {
 
     spawnRandomObject: function() {
         var rand = Math.random();
-        if (rand < 0.5) {
+ /*       if (rand < 0.5) {
             var coin = new game.Coin(game.system.width, 400 + Math.random() * 400);
         }
         else if (rand < 0.8) {
+            var oneway = new game.Oneway(game.system.width, 700);
+        }
+        else {
+            var tires = new game.Tires(game.system.width, 850);
+        } */
+
+       
+        if (rand <= 0.6) {
             var oneway = new game.Oneway(game.system.width, 700);
         }
         else {

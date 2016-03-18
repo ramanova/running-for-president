@@ -3,7 +3,9 @@ game.module(
 )
 .body(function() {
 
-game.addAudio('trump_coin_sound.mp3', 'trump_coin_sound');
+// game.addAudio('trump_coin_sound.mp3', 'trump_coin_sound'); not for hillary!
+
+
 game.addAudio('wall_collide_sound.ogg', 'wall_collide_sound');
 
 game.addAsset('stacks_of_money.png', 'stacks_of_money');
@@ -12,9 +14,10 @@ game.addAsset('crate_01.png', 'crate_01');
 
 game.createClass('Player', {
     onGround: false,    
+    delegates: 0,
 
     init: function(x, y) {
-
+        
         this.sprite = game.Animation.fromFrames('run');
         this.sprite.animationSpeed = 0.2;
         this.sprite.anchor.set(0.5, 0.6);
@@ -69,7 +72,7 @@ game.createClass('Player', {
         }
         else if (other.collisionGroup === 2) { // pickup
             other.parent.remove();
-            game.audio.playSound("trump_coin_sound", false);
+            // game.audio.playSound("trump_coin_sound", false); -- not for hillary!
             
             return false;
         }
@@ -190,7 +193,21 @@ game.createClass('Coin', {
 
 game.createClass('Tires', {
     init: function(x, y) {
-        this.sprite = new game.Sprite('crate_01.png');
+        var rand = Math.random();
+        if (rand <= 0.25) {
+            this.sprite = new game.Sprite('crate_01');
+        } 
+        else if (rand <= 0.5 && rand > 0.25) {
+            this.sprite = new game.Sprite('crate_02');
+        }
+        else if (rand <= 0.75 && rand > 0.5) {
+            this.sprite = new game.Sprite('crate_03');
+        }
+        else {
+            this.sprite = new game.Sprite('server');        
+        }
+
+        
         this.sprite.anchor.set(0.5, 0.5);
 
         this.body = new game.Body({

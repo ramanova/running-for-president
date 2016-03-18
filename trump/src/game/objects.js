@@ -9,9 +9,11 @@ game.addAudio('wall_collide_sound.ogg', 'wall_collide_sound');
 game.addAsset('stacks_of_money.png', 'stacks_of_money');
 
 game.createClass('Player', {
-    onGround: false,    
+    onGround: false,  
+    delegates: 0,  
 
     init: function(x, y) {
+        delegates = 0;
 
         this.sprite = game.Animation.fromFrames('run');
         this.sprite.animationSpeed = 0.2;
@@ -68,11 +70,13 @@ game.createClass('Player', {
         else if (other.collisionGroup === 2) { // pickup
             other.parent.remove();
             game.audio.playSound("trump_coin_sound", false);
+            delegates++;
+            //this.parent.player.delegates++;
             
             return false;
         }
         else if (other.collisionGroup === 3) { // obstacle            
-            this.kill();
+            // this.kill();
 
             return false;
         }
@@ -126,6 +130,8 @@ game.createClass('Player', {
         // Update sprite position
         this.sprite.position.x = this.body.position.x;
         this.sprite.position.y = this.body.position.y;
+
+        //this.text = "Delegates: " + delegates;
 
         if (this.killed) return;
 
@@ -196,6 +202,19 @@ game.createClass('Coin', {
 game.createClass('Tires', {
     init: function(x, y) {
         this.sprite = new game.Sprite('tires.png');
+
+
+        var rand = Math.random();
+        if (rand <= 0.33) {
+            this.sprite = new game.Sprite('crate_01.png');
+        } 
+        else if (rand <= 0.33 && rand > 0.66) {
+            this.sprite = new game.Sprite('crate_02.png');
+        }
+        else {
+            this.sprite = new game.Sprite('wall.png');        
+        }
+
         this.sprite.anchor.set(0.5, 0.5);
 
         this.body = new game.Body({

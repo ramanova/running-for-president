@@ -53,10 +53,17 @@ game.createScene('Main', {
 
     spawnRandomObject: function() {
         var rand = Math.random();
+        /* 
         if (rand < 0.5) {
             var coin = new game.Coin(game.system.width, 400 + Math.random() * 400);
         }
         else if (rand < 0.8) {
+            var oneway = new game.Oneway(game.system.width, 700);
+        }
+        else {
+            var tires = new game.Tires(game.system.width, 850);
+        }*/
+        if (rand <= 0.6) {
             var oneway = new game.Oneway(game.system.width, 700);
         }
         else {
