@@ -45,7 +45,19 @@ a.spolier.collapsed:after {
 }
 
 #title {
-    font-size: 8em;
+    font-size: 12em;
     text-align: center;
     font-family: 'VT323', cursive;
+    line-height: .75em;
+}
+
+#bg {
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  
+  /* Preserve aspet ratio */
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
 }
