@@ -2,7 +2,10 @@ game.module(
     'game.objects'
 )
 .body(function() {
-    
+
+game.addAudio('trump_coin_sound.mp3', 'trump_coin_sound');
+game.addAudio('wall_collide_sound.ogg', 'wall_collide_sound');
+
 game.createClass('Player', {
     onGround: false,    
 
@@ -62,9 +65,11 @@ game.createClass('Player', {
         }
         else if (other.collisionGroup === 2) { // pickup
             other.parent.remove();
+            game.audio.playSound("trump_coin_sound", false);
+            
             return false;
         }
-        else if (other.collisionGroup === 3) { // obstacle
+        else if (other.collisionGroup === 3) { // obstacle            
             this.kill();
 
             return false;
@@ -80,6 +85,7 @@ game.createClass('Player', {
     },
 
     kill: function() {
+        game.audio.playSound("wall_collide_sound", false);
         this.killed = true;
         this.body.mass = 1;
         game.scene.world.removeBodyCollision(this.body);
@@ -173,7 +179,7 @@ game.createClass('Coin', {
 
 game.createClass('Tires', {
     init: function(x, y) {
-        this.sprite = new game.Sprite('wall.png');
+        this.sprite = new game.Sprite('tires.png');
         this.sprite.anchor.set(0.5, 0.5);
 
         this.body = new game.Body({
