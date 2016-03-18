@@ -6,6 +6,8 @@ game.module(
 game.addAudio('trump_coin_sound.mp3', 'trump_coin_sound');
 game.addAudio('wall_collide_sound.ogg', 'wall_collide_sound');
 
+game.addAsset('stacks_of_money.png', 'stacks_of_money');
+
 game.createClass('Player', {
     onGround: false,    
 
@@ -141,10 +143,24 @@ game.createClass('Player', {
 
 game.createClass('Coin', {
     init: function(x, y) {
+/*
         this.sprite = game.Animation.fromFrames('coin-gold');
         this.sprite.animationSpeed = 0.2;
         this.sprite.anchor.set(0.5, 0.5);
         this.sprite.play();
+
+*/
+
+        this.sprite = new game.Sprite('stacks_of_money');
+        this.sprite.anchor.set(0.5, 0.5);
+        this.sprite.scale.x = 0;
+        this.sprite.scale.y = 0;
+
+        var tween = new game.Tween(this.sprite.scale);
+        tween.to({x:1, y:1}, 500);
+        tween.easing(game.Tween.Easing.Back.Out);
+        tween.start();
+
 
         this.body = new game.Body({
             position: {
