@@ -47,8 +47,8 @@ game.createScene('Main', {
         this.player = new game.Player(400, game.system.height - 400);
         this.player.sprite.addTo(this.playerContainer);
 
-        var text = new game.PIXI.Text("Delegates: " + this.player.delegates, { font: '60px Comic Sans MS' });
-        this.stage.addChild(text);
+        /* var text = new game.PIXI.Text("Delegates: " + this.player.delegates, { font: '60px Comic Sans MS' });
+        this.stage.addChild(text); */
 
         this.addTimer(1200, this.spawnRandomObject.bind(this), true);
         this.spawnRandomObject();

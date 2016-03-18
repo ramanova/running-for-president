@@ -157,24 +157,52 @@ game.createClass('Coin', {
 
 */
 
-        this.sprite = new game.Sprite('stacks_of_money');
-        this.sprite.anchor.set(0.5, 0.5);
-        this.sprite.scale.x = 0;
-        this.sprite.scale.y = 0;
+        // this.sprite = new game.Sprite('stacks_of_money');
 
-        var tween = new game.Tween(this.sprite.scale);
-        tween.to({x:1, y:1}, 500);
-        tween.easing(game.Tween.Easing.Back.Out);
-        tween.start();
+        var rand = Math.random();
+        if (rand <= 0.3) {
+            this.sprite = new game.Sprite('Twitter_logo_blue.png');    
+            this.sprite.anchor.set(0.5, 0.5);
+            this.sprite.scale.x = 0.0;
+            this.sprite.scale.y = 0.0;
+
+            var tween = new game.Tween(this.sprite.scale);
+            tween.to({x:0.08, y:0.08}, 500);
+            tween.easing(game.Tween.Easing.Back.Out);
+            tween.start();
 
 
-        this.body = new game.Body({
-            position: {
-                x: x + this.sprite.width,
-                y: y
-            },
-            collisionGroup: 2
-        });
+            this.body = new game.Body({
+                position: {
+                    x: x + this.sprite.width,
+                    y: y
+                },
+                collisionGroup: 2
+            });
+
+        } 
+        else {
+            this.sprite = new game.Sprite('Facebook_like_thumb.png');            
+            this.sprite.anchor.set(0.5, 0.5);
+            this.sprite.scale.x = 0.0;
+            this.sprite.scale.y = 0.0;
+
+            var tween = new game.Tween(this.sprite.scale);
+            tween.to({x:0.05, y:0.05}, 500);
+            tween.easing(game.Tween.Easing.Back.Out);
+            tween.start();
+
+
+            this.body = new game.Body({
+                position: {
+                    x: x + this.sprite.width,
+                    y: y
+                },
+                collisionGroup: 2
+            });
+        }
+
+        
 
         this.body.parent = this;
         this.body.velocity.x = -600;
@@ -207,23 +235,48 @@ game.createClass('Tires', {
         var rand = Math.random();
         if (rand <= 0.33) {
             this.sprite = new game.Sprite('crate_01.png');
+
+            this.sprite.anchor.set(0.5, 0.5);
+
+            this.body = new game.Body({
+                position: {
+                    x: x + this.sprite.width,
+                    y: y
+                },
+                collisionGroup: 3
+            });
+
         } 
         else if (rand <= 0.33 && rand > 0.66) {
             this.sprite = new game.Sprite('crate_02.png');
+
+            this.sprite.anchor.set(0.5, 0.5);
+
+            this.body = new game.Body({
+                position: {
+                    x: x + this.sprite.width,
+                    y: y
+                },
+                collisionGroup: 3
+            });
+
+
         }
         else {
-            this.sprite = new game.Sprite('wall.png');        
+            this.sprite = new game.Sprite('wall.png');    
+            this.sprite.anchor.set(0.5, 0.5);
+
+            this.body = new game.Body({
+                position: {
+                    x: x + this.sprite.width,
+                    y: y + 20
+                },
+                collisionGroup: 3
+            });
+
+    
         }
 
-        this.sprite.anchor.set(0.5, 0.5);
-
-        this.body = new game.Body({
-            position: {
-                x: x + this.sprite.width,
-                y: y
-            },
-            collisionGroup: 3
-        });
 
         this.body.velocity.x = -600;
         var shape = new game.Rectangle(this.sprite.width, this.sprite.height);

@@ -16,7 +16,7 @@ game.addAsset('coin.json');
 game.addAsset('oneway.png');
 game.addAsset('crate_01.png');
 game.addAsset('crate_02.png');
-game.addAsset('wall.png');
-
+game.addAsset('Facebook_like_thumb.png');
+game.addAsset('Twitter_logo_blue.png');
 
 });
