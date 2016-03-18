@@ -173,7 +173,7 @@ game.createClass('Coin', {
 
 game.createClass('Tires', {
     init: function(x, y) {
-        this.sprite = new game.Sprite('tires.png');
+        this.sprite = new game.Sprite('wall.png');
         this.sprite.anchor.set(0.5, 0.5);
 
         this.body = new game.Body({
