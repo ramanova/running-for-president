@@ -194,17 +194,20 @@ game.createClass('Coin', {
 game.createClass('Tires', {
     init: function(x, y) {
         var rand = Math.random();
-        if (rand <= 0.25) {
+        if (rand <= 0.2) {
             this.sprite = new game.Sprite('crate_01');
         } 
-        else if (rand <= 0.5 && rand > 0.25) {
+        else if (rand <= 0.4 && rand > 0.20) {
             this.sprite = new game.Sprite('crate_02');
         }
-        else if (rand <= 0.75 && rand > 0.5) {
+        else if (rand <= 0.6 && rand > 0.4) {
             this.sprite = new game.Sprite('crate_03');
         }
-        else {
+        else if (rand <= 0.8 && rand > 0.6) {
             this.sprite = new game.Sprite('server');        
+        } 
+        else {
+            this.sprite = new game.Sprite('bro');        
         }
 
         
