@@ -43,3 +43,8 @@ a.spolier.collapsed:after {
 }
 .modal-dialog {    
 }
+
+#title {
+    font-size: 8em;
+    font-family: 'Monofett', cursive;
+}
