@@ -46,5 +46,6 @@ a.spolier.collapsed:after {
 
 #title {
     font-size: 8em;
-    font-family: 'Monofett', cursive;
+    text-align: center;
+    font-family: 'VT323', cursive;
 }
