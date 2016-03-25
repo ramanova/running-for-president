@@ -3,8 +3,8 @@ game.module(
 )
 .body(function() {
 
-game.addAudio('trump_coin_sound.mp3', 'trump_coin_sound');
-game.addAudio('wall_collide_sound.ogg', 'wall_collide_sound');
+// game.addAudio('trump_coin_sound.mp3', 'trump_coin_sound');
+// game.addAudio('wall_collide_sound.ogg', 'wall_collide_sound');
 
 game.addAsset('stacks_of_money.png', 'stacks_of_money');
 
@@ -69,7 +69,7 @@ game.createClass('Player', {
         }
         else if (other.collisionGroup === 2) { // pickup
             other.parent.remove();
-            game.audio.playSound("trump_coin_sound", false);
+            // game.audio.playSound("trump_coin_sound", false);
             delegates++;
             //this.parent.player.delegates++;
             
@@ -91,7 +91,7 @@ game.createClass('Player', {
     },
 
     kill: function() {
-        game.audio.playSound("wall_collide_sound", false);
+        // game.audio.playSound("wall_collide_sound", false);
         this.killed = true;
         this.body.mass = 1;
         game.scene.world.removeBodyCollision(this.body);

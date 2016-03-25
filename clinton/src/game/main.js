@@ -8,17 +8,17 @@ game.module(
 )
 .body(function() {
 
-game.addAudio('jump_sound.mp3', 'jump_sound');
-game.addAudio('clinton_song.mp3', 'trump_song');
-game.addAudio('trump_coin_sound.mp3', 'trump_coin_sound');
-game.addAudio('wall_collide_sound.ogg', 'wall_collide_sound');
+// game.addAudio('jump_sound.mp3', 'jump_sound');
+// game.addAudio('clinton_song.mp3', 'trump_song');
+// game.addAudio('trump_coin_sound.mp3', 'trump_coin_sound');
+// game.addAudio('wall_collide_sound.ogg', 'wall_collide_sound');
 
 
 game.createScene('Main', {
     init: function() {
         this.world = new game.World(0, 2000);
 
-        game.audio.playMusic("trump_song", true);
+        // game.audio.playMusic("trump_song", true);
     
         var floorBody = new game.Body({
             position: {
@@ -86,13 +86,13 @@ game.createScene('Main', {
 
     mousedown: function() {
         this.player.jump();
-        game.audio.playSound("jump_sound", false);
+        // game.audio.playSound("jump_sound", false);
     },
 
     keydown: function(key) {
         if (key === 'SPACE') {
             this.player.jump();
-            game.audio.playSound("jump_sound", false);        
+            // game.audio.playSound("jump_sound", false);        
         } else if (key == 'ESC') {
             alert('pause');            
         }
